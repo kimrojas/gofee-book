@@ -17,7 +17,10 @@ Download tutorial files here:  {download}`Tutorial files <./files/helper_dftbplu
 
 Download tutorial files here:  {download}`Tutorial files <https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh>`.
 
-https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh
+
+<a id="download" href="https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh">DOWNLOAD</a>
+
+
 
 :::{note}
 If more information is needed, feel free to create an issue in the github repository.
