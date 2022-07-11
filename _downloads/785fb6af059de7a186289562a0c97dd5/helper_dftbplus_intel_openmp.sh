@@ -9,8 +9,8 @@
 
 INP=$1
 maindir='intelomp'
-builddir="${maindir}/_build"
-installdir="${maindir}/_install"
+builddir="./${maindir}/_build"
+installdir="./${maindir}/_install"
 srcdir="./"
 
 compiler_opt='FC=mpiifort CC=mpiicc'
@@ -27,8 +27,8 @@ installlog='install.log'
 if [ $INP == 'config' ]
 then
     rm -rf $builddir
-    mkdir $builddir
-    command="$option cmake $cmake_opt -B $builddir $srcdir | tee ./$maindir/$configlog"
+    mkdir -p $builddir
+    command="${compiler_opt} cmake $CMAKE_OPT -B $builddir $srcdir | tee ./$maindir/$configlog"
     eval $command
 elif [ $INP == 'build' ]
 then
@@ -37,7 +37,7 @@ then
 elif [ $INP == 'test' ]
 then
     cd $builddir
-    command="ctest -j2 | tee $testlog"
+    command="ctest -j2 | tee ./$testlog"
     eval $command
     cd ..
 elif [ $INP == 'install' ]

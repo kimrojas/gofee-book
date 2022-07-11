@@ -13,16 +13,10 @@ The general topics to explore in this documentation are:
 Download tutorial files here:  {download}`Tutorial files <./_static/somefile.txt>`.
 
 
-Download tutorial files here:  {download}`Tutorial files <./files/helper_dftbplus_intel_openmp.sh>`.
-
-Download tutorial files here:  {download}`Tutorial files <https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh>`.
-
-
-<a id="download" href="https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh">DOWNLOAD</a>
-
-
-
 :::{note}
 If more information is needed, feel free to create an issue in the github repository.
 :::
 
+**https://kimrojas.github.io/gofee-book/_downloads/785fb6af059de7a186289562a0c97dd5/helper_dftbplus_intel_openmp.sh**
+
+https://kimrojas.github.io/gofee-book/_downloads/785fb6af059de7a186289562a0c97dd5/helper_dftbplus_intel_openmp.sh

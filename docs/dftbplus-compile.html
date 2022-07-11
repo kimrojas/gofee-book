@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DFTB+ via compilation &#8212; GOFEE Tutorial</title>
+    <title>Compiling DFTB+ &#8212; GOFEE Tutorial</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
@@ -141,7 +142,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     DFTB+ via compilation
+     Compiling DFTB+
     </a>
    </li>
   </ul>
@@ -219,7 +220,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://github.com/kimrojas/quantum-espresso-book"
+        <a href="https://github.com/kimrojas/gofee-book"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -236,7 +237,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/kimrojas/quantum-espresso-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-compile.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/kimrojas/gofee-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-compile.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -339,8 +340,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-helper-codes-for-the-recipe">
-     Use helper codes for the recipe
+    <a class="reference internal nav-link" href="#build-and-install">
+     Build and install
     </a>
    </li>
   </ul>
@@ -354,7 +355,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DFTB+ via compilation</h1>
+                <h1>Compiling DFTB+</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -380,8 +381,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#use-helper-codes-for-the-recipe">
-     Use helper codes for the recipe
+    <a class="reference internal nav-link" href="#build-and-install">
+     Build and install
     </a>
    </li>
   </ul>
@@ -396,8 +397,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="dftb-via-compilation">
-<h1>DFTB+ via compilation<a class="headerlink" href="#dftb-via-compilation" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="compiling-dftb">
+<h1>Compiling DFTB+<a class="headerlink" href="#compiling-dftb" title="Permalink to this headline">#</a></h1>
 <p>DFTB+ can be compiled with 4 parallelism types:</p>
 <ol class="simple">
 <li><p>Serial (non-parallelized)</p></li>
@@ -442,10 +443,13 @@ tar zxvf <span class="m">22</span>.1.tar.gz
 </pre></div>
 </div>
 </section>
-<section id="use-helper-codes-for-the-recipe">
-<h3>Use helper codes for the recipe<a class="headerlink" href="#use-helper-codes-for-the-recipe" title="Permalink to this headline">#</a></h3>
-<!-- For intel-based OpenMP: {download}`HELPER File <https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh>` -->
+<section id="build-and-install">
+<h3>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this headline">#</a></h3>
+<p>I have prepared specific a specific recipe for the workflow. Simply download and run</p>
 <p>For intel-based OpenMP: <a class="reference download internal" download="" href="../_downloads/785fb6af059de7a186289562a0c97dd5/helper_dftbplus_intel_openmp.sh"><code class="xref download docutils literal notranslate"><span class="pre">HELPER</span> <span class="pre">File</span></code></a></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/helper_dftbplus_intel_openmp.sh
+</pre></div>
+</div>
 <!-- 
 
 
