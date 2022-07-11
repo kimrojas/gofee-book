@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+- caption: Installation
+  chapters:
+  - file: docs/install-smith
+  - file: docs/install-local
+  - file: docs/python-env
+
