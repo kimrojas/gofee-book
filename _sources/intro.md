@@ -12,10 +12,6 @@ The general topics to explore in this documentation are:
 
 Download tutorial files here:  {download}`Tutorial files <_static/references.bib>`.
 
-:::{download}
-Tutorial files <_static/references.bib>
-:::
-
 :::{note}
 If more information is needed, feel free to create an issue in the github repository.
 :::
