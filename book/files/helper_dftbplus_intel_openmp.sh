@@ -27,8 +27,8 @@ installlog='install.log'
 if [ $INP == 'config' ]
 then
     rm -rf $builddir
-    mkdir $builddir
-    command="$option cmake $cmake_opt -B $builddir $srcdir | tee ./$maindir/$configlog"
+    mkdir -p $builddir
+    command="$option cmake $CMAKE_OPT -B $builddir $srcdir | tee ./$maindir/$configlog"
     eval $command
 elif [ $INP == 'build' ]
 then
