@@ -9,8 +9,8 @@
 
 INP=$1
 maindir='intelomp'
-builddir="${maindir}/_build"
-installdir="${maindir}/_install"
+builddir="./${maindir}/_build"
+installdir="./${maindir}/_install"
 srcdir="./"
 
 compiler_opt='FC=mpiifort CC=mpiicc'
@@ -37,7 +37,7 @@ then
 elif [ $INP == 'test' ]
 then
     cd $builddir
-    command="ctest -j2 | tee $testlog"
+    command="ctest -j2 | tee ./$testlog"
     eval $command
     cd ..
 elif [ $INP == 'install' ]
