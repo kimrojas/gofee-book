@@ -1,4 +1,22 @@
-# Installation on Smith cluster
+# DFTB+ installation
+
+There are two ways the install DFTB+
+
+1. via conda-forge (easier to setup but less optimized)
+2. via compilation
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 
 ## Using available Quantum Espresso
 
@@ -95,4 +113,4 @@ source ~/.bashrc
 
 
 
-
+ -->

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Compile on local computer &#8212; Quantum Espresso Tutorial</title>
+    <title>DFTB+ via compilation &#8212; Quantum Espresso Tutorial</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="DFTB+ via compilation" href="dftbplus-compile.html" />
-    <link rel="prev" title="DFTB+ installation" href="dftbplus-install.html" />
+    <link rel="prev" title="Compile on local computer" href="install-local.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -136,13 +135,13 @@ const thebe_selector_output = ".output, .cell_output"
    </i>
   </label>
   <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="install-local.html">
      Compile on local computer
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-compile.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      DFTB+ via compilation
     </a>
    </li>
@@ -238,7 +237,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/kimrojas/quantum-espresso-book/issues/new?title=Issue%20on%20page%20%2Fdocs/install-local.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/kimrojas/quantum-espresso-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-compile.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -266,7 +265,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/docs/install-local.md"
+        <a href="../_sources/docs/dftbplus-compile.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -326,33 +325,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conda-method">
-   Conda method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compilation-method">
-   Compilation method
+  <a class="reference internal nav-link" href="#dftb-openmp-setup">
+   DFTB+ OpenMP setup
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-source-files">
-     Download the source files
+    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+     Load compilers and python environment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#activate-compiler-environment">
-     Activate compiler environment
+    <a class="reference internal nav-link" href="#download-the-dftb-package">
+     Download the DFTB+ package
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-and-install">
-     Build and install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-to-path">
-     Add to PATH
+    <a class="reference internal nav-link" href="#use-helper-codes-for-the-recipe">
+     Use helper codes for the recipe
     </a>
    </li>
   </ul>
@@ -366,7 +355,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Compile on local computer</h1>
+                <h1>DFTB+ via compilation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -377,33 +366,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conda-method">
-   Conda method
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compilation-method">
-   Compilation method
+  <a class="reference internal nav-link" href="#dftb-openmp-setup">
+   DFTB+ OpenMP setup
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-source-files">
-     Download the source files
+    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+     Load compilers and python environment
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#activate-compiler-environment">
-     Activate compiler environment
+    <a class="reference internal nav-link" href="#download-the-dftb-package">
+     Download the DFTB+ package
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-and-install">
-     Build and install
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#add-to-path">
-     Add to PATH
+    <a class="reference internal nav-link" href="#use-helper-codes-for-the-recipe">
+     Use helper codes for the recipe
     </a>
    </li>
   </ul>
@@ -418,90 +397,154 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="compile-on-local-computer">
-<h1>Compile on local computer<a class="headerlink" href="#compile-on-local-computer" title="Permalink to this headline">#</a></h1>
-<p>There are a few general advantages of using Quantum Espresso from a local machine such as doing basic tutorials and testing scripts for input file creations. There are two ways to install quantum espresso in your local machine:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="dftb-via-compilation">
+<h1>DFTB+ via compilation<a class="headerlink" href="#dftb-via-compilation" title="Permalink to this headline">#</a></h1>
+<p>DFTB+ can be compiled with 4 parallelism types:</p>
 <ol class="simple">
-<li><p>via CONDA (serial or single-core executable)</p></li>
-<li><p>via compilation (can be serial or parallelized executable)</p></li>
+<li><p>Serial (non-parallelized)</p></li>
+<li><p>OpenMP (parallelize via threads)</p></li>
+<li><p>MPI (parallelize via mpi)</p></li>
+<li><p>OpenMP-MPI hybrid (parallelize via thread and mpi, not discussed)</p></li>
 </ol>
-<section id="conda-method">
-<h2>Conda method<a class="headerlink" href="#conda-method" title="Permalink to this headline">#</a></h2>
-<p>With an activated conda:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda create -n qe -c conda-forge  <span class="nv">pyton</span><span class="o">=</span><span class="m">3</span>.8 qe
-</pre></div>
+<p>In this section, installation method of OpenMP will be discussed.</p>
+<div class="tip admonition">
+<p class="admonition-title">What to use: Serial, OpenMP or MPI</p>
+<p><strong>Serial</strong> is just good for testing.</p>
+<p><strong>OpenMP</strong> seems good for relatively small systems that uses a single node.</p>
+<p><strong>MPI</strong> <em>may</em> be better for larger systems that requires more than a single node. For small systems, MPI takes longer than OpenMP.</p>
 </div>
-</section>
-<hr class="docutils" />
-<section id="compilation-method">
-<h2>Compilation method<a class="headerlink" href="#compilation-method" title="Permalink to this headline">#</a></h2>
-<p>There are many options for the compilers, math library and MPI but for simplicity (in Intel-based system) we will use <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/overview.html#gs.5fpuqp">oneAPI Toolkits</a>. You will need the OneAPI <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/base-toolkit-download.html">base</a> and <a class="reference external" href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/hpc-toolkit-download.html">HPC</a> Toolkits.</p>
-<p>For Ryzen-based systems, you might need to use their ryzen-optimized compilers and math library (AOCC and AOCL). Installation on Ryzen-based systems will not be tackled here but you can refer to this <a class="reference external" href="https://developer.amd.com/spack/quantum-espresso/">article</a> for more information.</p>
-<p>The procedure are as follows:</p>
-<section id="download-the-source-files">
-<h3>Download the source files<a class="headerlink" href="#download-the-source-files" title="Permalink to this headline">#</a></h3>
-<p>The source file releases can be found in <a class="reference external" href="https://gitlab.com/QEF/q-e/-/tags">QE Releases</a>. In this specific tutorial, we use the <a class="reference external" href="https://gitlab.com/QEF/q-e/-/releases/qe-7.0">QE 7.0 Release</a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download</span>
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
-<span class="c1"># Extract</span>
-tar zxvf q-e-qe-7.0.tar.gz
-</pre></div>
-</div>
-</section>
-<section id="activate-compiler-environment">
-<h3>Activate compiler environment<a class="headerlink" href="#activate-compiler-environment" title="Permalink to this headline">#</a></h3>
-<p>We need to activate the required depdendency modules.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace the <code class="docutils literal notranslate"><span class="pre">&lt;oneapi-intel-path&gt;</span></code> with the path to your <code class="docutils literal notranslate"><span class="pre">setvars.sh</span></code> script.</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> &lt;oneapi-intel-path&gt;/setvars.sh
-</pre></div>
-</div>
-</section>
-<section id="build-and-install">
-<h3>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this headline">#</a></h3>
-<p>Follow the following commands:</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j8</span></code> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-jN</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is your allowed cpu to be used. For example, if my computer have 4 CPUs only, then <code class="docutils literal notranslate"><span class="pre">N</span></code>=4.</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize build directory</span>
-mkdir q-e-qe-7.0/_build
-<span class="nb">cd</span> q-e-qe-7.0/_build
+<section id="dftb-openmp-setup">
+<h2>DFTB+ OpenMP setup<a class="headerlink" href="#dftb-openmp-setup" title="Permalink to this headline">#</a></h2>
+<section id="load-compilers-and-python-environment">
+<h3>Load compilers and python environment<a class="headerlink" href="#load-compilers-and-python-environment" title="Permalink to this headline">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load compilers</span>
+module load cmake/3.18.3
+module load intel/2020.2.254
+module load intelmpi/2020.2.254
+module load python/3.8
 
-<span class="c1"># Build</span>
-cmake <span class="se">\</span>
-    -DQE_ENABLE_MPI<span class="o">=</span>ON <span class="se">\</span>
-    -DQE_ENABLE_TEST<span class="o">=</span>ON <span class="se">\</span>
-    -DQE_ENABLE_SCALAPACK<span class="o">=</span>ON <span class="se">\</span>
-    -DQE_FFTW_VENDOR<span class="o">=</span>Intel_DFTI <span class="se">\</span>
-    -DCMAKE_C_COMPILER<span class="o">=</span>mpiicc <span class="se">\</span>
-    -DCMAKE_Fortran_COMPILER<span class="o">=</span>mpiifort <span class="se">\</span>
-    -DCMAKE_INSTALL_PREFIX<span class="o">=</span>../_install <span class="se">\</span>
-    -DQE_ENABLE_LIBXC<span class="o">=</span>ON <span class="se">\</span>
+<span class="c1"># Load python environment</span>
+<span class="nb">source</span> activate tutorial
+</pre></div>
+</div>
+</section>
+<section id="download-the-dftb-package">
+<h3>Download the DFTB+ package<a class="headerlink" href="#download-the-dftb-package" title="Permalink to this headline">#</a></h3>
+<p>We will use the DFTB+ version 22.1 (Other releases are available <a class="reference external" href="https://github.com/dftbplus/dftbplus/releases/">here</a>)</p>
+<p>I assume that <code class="docutils literal notranslate"><span class="pre">tutorial_files</span></code> is in the home directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download source files</span>
+<span class="nb">cd</span> ~/tutorial_files/apps
+wget https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz
+tar zxvf <span class="m">22</span>.1.tar.gz 
+<span class="nb">cd</span> dftbplus-22.1
+
+<span class="c1"># Download external components</span>
+./utils/get_opt_externals
+</pre></div>
+</div>
+</section>
+<section id="use-helper-codes-for-the-recipe">
+<h3>Use helper codes for the recipe<a class="headerlink" href="#use-helper-codes-for-the-recipe" title="Permalink to this headline">#</a></h3>
+<p>For intel-based OpenMP: <a class="reference download external" download="" href="[./_static/helper_dftbplus_intel_openmp.sh](https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh)"><code class="xref download docutils literal notranslate"><span class="pre">HELPER</span> <span class="pre">File</span></code></a></p>
+<!-- 
+
+
+## Using available Quantum Espresso
+
+A compiled and optimized quantum espresso is already made so you just need to use it. To use it:
+
+### Add the custom modules to ~/.bashrc
+```bash
+echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
+
+# Refresh environment
+source ~/.bashrc
+```
+
+### Activate the environment
+```bash
+module load qe/7.0
+```
+
+-----
+
+## Compiling from source files
+
+If you wish to compile your own or a different version of Quantum Espresso, the following procedure is the recipe for the compiled Quantum Espresso discussed above. 
+
+:::{note}
+The compiled Quantum Espresso is okay to use in most general calculations
+:::
+
+### Download the source files
+
+The source file releases can be found in [QE Releases](https://gitlab.com/QEF/q-e/-/tags). In this specific tutorial, we use the [QE 7.0 Release](https://gitlab.com/QEF/q-e/-/releases/qe-7.0)
+
+```bash
+# Download
+wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
+# Extract
+tar zxvf q-e-qe-7.0.tar.gz
+```
+
+### Activate compiler environment
+
+We need to activate the required depdendency modules.
+
+```bash
+module load cmake/3.18.3
+module load intel/2020.2.254
+module load intelmpi/2020.2.254
+module load python/3.8
+module load libxc/5.2.2
+module load git/2.17
+```
+
+### Build and install
+
+Follow the following commands:
+
+```bash
+# Initialize build directory
+mkdir q-e-qe-7.0/_build
+cd q-e-qe-7.0/_build
+
+# Build
+cmake \
+    -DQE_ENABLE_MPI=ON \
+    -DQE_ENABLE_TEST=ON \
+    -DQE_ENABLE_SCALAPACK=ON \
+    -DQE_FFTW_VENDOR=Intel_DFTI \
+    -DCMAKE_C_COMPILER=mpiicc \
+    -DCMAKE_Fortran_COMPILER=mpiifort \
+    -DCMAKE_INSTALL_PREFIX=../_install \
+    -DQE_ENABLE_LIBXC=ON \
     ../
 
-<span class="c1"># Compile</span>
+# Compile
 make -j8
 
-<span class="c1"># Install</span>
+# Install
 make install
-</pre></div>
-</div>
-</section>
-<section id="add-to-path">
-<h3>Add to PATH<a class="headerlink" href="#add-to-path" title="Permalink to this headline">#</a></h3>
-<p>Add the compiled executables (fancy way to say “program”) to the PATH so it can be discovered by the system</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;full-QE-directory-path&gt;</span></code> with the full path of your quantum espresso directory.</p>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export PATH=&lt;full-QE-directory-path&gt;/q-e-qe-7.0/_install/bin:$PATH&#39;</span> &gt;&gt; ~/.bashrc
+```
 
-<span class="nb">source</span> ~/.bashrc
-</pre></div>
-</div>
+### Add to PATH
+
+Add the compiled executables (fancy way to say "program") to the PATH so it can be discovered by the system
+
+```{note}
+Replace `<full-QE-directory-path>` with the full path of your quantum espresso directory.
+```
+
+```bash
+echo 'export PATH=<full-QE-directory-path>/q-e-qe-7.0/_install/bin:$PATH' >> ~/.bashrc
+
+source ~/.bashrc
+```
+
+
+
+ -->
 </section>
 </section>
 </section>
@@ -533,19 +576,12 @@ make install
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="dftbplus-install.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="install-local.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">DFTB+ installation</p>
+            <p class="prev-next-title">Compile on local computer</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="dftbplus-compile.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">DFTB+ via compilation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
