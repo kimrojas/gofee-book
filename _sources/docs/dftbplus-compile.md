@@ -53,7 +53,7 @@ cd dftbplus-22.1
 
 ### Use helper codes for the recipe
 
-For intel-based OpenMP: {download}`HELPER File <[./_static/helper_dftbplus_intel_openmp.sh](https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh)>`
+For intel-based OpenMP: {download}`HELPER File <[./_static/helper_dftbplus_intel_openmp.sh](https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh>`
 
 
 
