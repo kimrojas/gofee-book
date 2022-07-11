@@ -17,7 +17,7 @@ compiler_opt='FC=mpiifort CC=mpiicc'
 python_opt='-DENABLE_DYNAMIC_LOADING=1 -DWITH_PYTHON=1 -DBUILD_SHARED_LIBS=1 -DWITH_API=1'
 ase_opt='-DWITH_SOCKETS=1'
 
-CMAKE_OPT="-DCMAKE_INSTALL_PREFIX=${installdir} ${compiler_opt} ${python_opt} ${ase_opt} -DTEST_OMP_THREADS=2"
+CMAKE_OPT="-DCMAKE_INSTALL_PREFIX=${installdir} ${python_opt} ${ase_opt} -DTEST_OMP_THREADS=2"
 
 buildlog='build.log'
 configlog='config.log'
@@ -28,7 +28,7 @@ if [ $INP == 'config' ]
 then
     rm -rf $builddir
     mkdir -p $builddir
-    command="$option cmake $CMAKE_OPT -B $builddir $srcdir | tee ./$maindir/$configlog"
+    command="${compiler_opt} cmake $CMAKE_OPT -B $builddir $srcdir | tee ./$maindir/$configlog"
     eval $command
 elif [ $INP == 'build' ]
 then
