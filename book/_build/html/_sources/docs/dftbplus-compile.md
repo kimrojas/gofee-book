@@ -1,4 +1,74 @@
-# Installation on Smith cluster
+# DFTB+ via compilation
+
+DFTB+ can be compiled with 4 parallelism types:
+
+1. Serial (non-parallelized)
+2. OpenMP (parallelize via threads)
+3. MPI (parallelize via mpi)
+4. OpenMP-MPI hybrid (parallelize via thread and mpi, not discussed)
+
+In this section, installation method of OpenMP will be discussed. 
+
+```{admonition} What to use: Serial, OpenMP or MPI
+:class: tip
+**Serial** is just good for testing. 
+
+**OpenMP** seems good for relatively small systems that uses a single node.
+
+**MPI** *may* be better for larger systems that requires more than a single node. For small systems, MPI takes longer than OpenMP. 
+```
+
+
+## DFTB+ OpenMP setup
+
+### Load compilers and python environment
+
+```bash
+# Load compilers
+module load cmake/3.18.3
+module load intel/2020.2.254
+module load intelmpi/2020.2.254
+module load python/3.8
+
+# Load python environment
+source activate tutorial
+```
+
+### Download the DFTB+ package
+
+We will use the DFTB+ version 22.1 (Other releases are available [here](https://github.com/dftbplus/dftbplus/releases/))
+
+I assume that `tutorial_files` is in the home directory.
+
+```bash
+# Download source files
+cd ~/tutorial_files/apps
+wget https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz
+tar zxvf 22.1.tar.gz 
+cd dftbplus-22.1
+
+# Download external components
+./utils/get_opt_externals
+```
+
+### Use helper codes for the recipe
+
+For intel-based OpenMP: {download}`HELPER File <./_static/helper_dftbplus_intel_openmp.sh>`
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 
 ## Using available Quantum Espresso
 
@@ -95,4 +165,4 @@ source ~/.bashrc
 
 
 
-
+ -->

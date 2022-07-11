@@ -1,10 +1,28 @@
-# Installation on Smith cluster
+# DFTB+ installation
+
+There are two ways the install DFTB+
+
+1. via conda-forge (easier to setup but less optimized)
+2. via compilation
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
 
 ## Using available Quantum Espresso
 
-A compiled and optimized quantum espresso is already made available. To use it:
+A compiled and optimized quantum espresso is already made so you just need to use it. To use it:
 
-##### 1. Add the custom modules to ~/.bashrc
+### Add the custom modules to ~/.bashrc
 ```bash
 echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
 
@@ -12,15 +30,22 @@ echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
 source ~/.bashrc
 ```
 
-##### 2. Activate the environment
+### Activate the environment
 ```bash
 module load qe/7.0
 ```
 
+-----
 
 ## Compiling from source files
 
-##### 1. Download the source files
+If you wish to compile your own or a different version of Quantum Espresso, the following procedure is the recipe for the compiled Quantum Espresso discussed above. 
+
+:::{note}
+The compiled Quantum Espresso is okay to use in most general calculations
+:::
+
+### Download the source files
 
 The source file releases can be found in [QE Releases](https://gitlab.com/QEF/q-e/-/tags). In this specific tutorial, we use the [QE 7.0 Release](https://gitlab.com/QEF/q-e/-/releases/qe-7.0)
 
@@ -31,7 +56,7 @@ wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
 tar zxvf q-e-qe-7.0.tar.gz
 ```
 
-##### 2. Activate compiler environment
+### Activate compiler environment
 
 We need to activate the required depdendency modules.
 
@@ -44,7 +69,7 @@ module load libxc/5.2.2
 module load git/2.17
 ```
 
-##### 3. Build and install
+### Build and install
 
 Follow the following commands:
 
@@ -72,7 +97,7 @@ make -j8
 make install
 ```
 
-##### 4. Add to PATH
+### Add to PATH
 
 Add the compiled executables (fancy way to say "program") to the PATH so it can be discovered by the system
 
@@ -88,4 +113,4 @@ source ~/.bashrc
 
 
 
-
+ -->

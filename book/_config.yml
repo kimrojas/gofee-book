@@ -43,3 +43,4 @@ sphinx:
   config:
     language: en
     html_static_path: ['_static']
+    html_static_path: ['_files']

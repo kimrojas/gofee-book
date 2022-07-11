@@ -27,7 +27,6 @@
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../_static/style.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/style.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -54,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Python environment" href="python-env.html" />
-    <link rel="prev" title="Installation on Smith cluster" href="install-smith.html" />
+    <link rel="next" title="DFTB+ via compilation" href="dftbplus-compile.html" />
+    <link rel="prev" title="DFTB+ installation" href="dftbplus-install.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -111,7 +110,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="../intro.html">
-                    Welcome to the Quantum Espresso tutorial
+                    Welcome to the GOFEE with DFTB+ tutorial
                 </a>
             </li>
         </ul>
@@ -122,19 +121,31 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="install-smith.html">
-   Installation on Smith cluster
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Compile on local computer
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="python-env.html">
    Python environment
   </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="dftbplus-install.html">
+   DFTB+ installation
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Compile on local computer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dftbplus-compile.html">
+     DFTB+ via compilation
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -521,17 +532,17 @@ make install
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="install-smith.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dftbplus-install.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installation on Smith cluster</p>
+            <p class="prev-next-title">DFTB+ installation</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python-env.html" title="next page">
+    <a class='right-next' id="next-link" href="dftbplus-compile.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Python environment</p>
+        <p class="prev-next-title">DFTB+ via compilation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
