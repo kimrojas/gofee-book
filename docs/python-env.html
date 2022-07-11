@@ -316,6 +316,23 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="python-environment">
 <h1>Python environment<a class="headerlink" href="#python-environment" title="Permalink to this headline">#</a></h1>
+<p>This part can be considered as the most difficult part due to latest version of dependencies breaking compatability.</p>
+<p>GOFEE requirements are</p>
+<ol class="simple">
+<li><p>python (3.6.3 or newer)</p></li>
+<li><p>ASE (3.17 or newer)</p></li>
+<li><p>cython (0.28 or newer)</p></li>
+<li><p>cymem (1.31.2 or newer)</p></li>
+<li><p>mpi4py (3.0 or newer)</p></li>
+</ol>
+<p>DFTB+</p>
+<ol class="simple">
+<li><p>numpy (any except 1.23.1)</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>NUMPY version 1.23.1 breaks the ASE and DFTB+ compatability which is a core process in the calculations.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

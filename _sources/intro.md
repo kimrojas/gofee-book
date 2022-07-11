@@ -10,7 +10,9 @@ The general topics to explore in this documentation are:
 4. Testing GOFEE and DFTB+ installation
 5. Using GOFEE with DFTB+ as the calculator
 
-Download tutorial files here:  {download}`Tutorial files <_static/references.bib>`.
+Download tutorial files here:  {download}`Tutorial files <references.bib>`.
+
+[test](_static/references.bib)
 
 :::{note}
 If more information is needed, feel free to create an issue in the github repository.
