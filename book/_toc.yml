@@ -9,10 +9,6 @@ parts:
   - file: docs/python-env
   - file: docs/dftbplus-install
     sections:
-      - file: docs/install-local
       - file: docs/dftbplus-compile
-  # section:
-  # - file: docs/install-smith
-  #   - file: docs/install-local
- 
+      - file: docs/install-conda
 
