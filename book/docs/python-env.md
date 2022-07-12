@@ -10,14 +10,15 @@ Feel free to change the envname.
 
 ```bash
 envname='tutorial'
-conda create -c conda-forge -n $envname python=3.8 python=3.8.13 ase=3.22.1 cymem=2.0.6 cython=0.29.30 mpi4py=3.1.3 numpy=1.22.1 pytest=7.1.2  scikit-learn=1.1.1 scipy=1.8.1 dscribe=1.2.1 matplotlib=3.5.2 
+conda create -c conda-forge -n $envname python=3.8.13 ase=3.22.1 cymem=2.0.6 cython=0.29.30 mpi4py=3.1.3 numpy=1.22.1 pytest=7.1.2  scikit-learn=1.1.1 scipy=1.8.1 dscribe=1.2.1 matplotlib=3.5.2 
 ```
 
-### via `.yml`
+### via exact `yml` specifications
 
-For 
+---
 
-## General requirements
+
+## General information on the requirements
 
 ### GOFEE
 
@@ -39,7 +40,16 @@ NUMPY version 1.23.1 breaks the ASE and DFTB+ compatability which is a core proc
 
 The following requirements are tested (locally and on smith). The versions are hard set for future reproducability. 
 
-1. numpy etc
-2. ase etc
+1. python=3.8
+2. ase=3.22.1 
+3. cymem=2.0.6 
+4. cython=0.29.30 
+5. mpi4py=3.1.3 
+6. numpy=1.22.1 
+7. pytest=7.1.2  
+8. scikit-learn=1.1.1 
+9. scipy=1.8.1 
+10. dscribe=1.2.1 
+11. matplotlib=3.5.2
 
 
