@@ -10,5 +10,5 @@ parts:
   - file: docs/dftbplus-install
     sections:
       - file: docs/dftbplus-compile
-      - file: docs/install-conda
+      - file: docs/dftbplus-conda
 
