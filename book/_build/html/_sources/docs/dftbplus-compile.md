@@ -1,4 +1,4 @@
-# DFTB+ via compilation
+# Compiling DFTB+
 
 DFTB+ can be compiled with 4 parallelism types:
 
@@ -51,12 +51,17 @@ cd dftbplus-22.1
 ./utils/get_opt_externals
 ```
 
-### Use helper codes for the recipe
+### Build and install
 
-<!-- For intel-based OpenMP: {download}`HELPER File <https://raw.githubusercontent.com/kimrojas/gofee-book/master/files/helper_dftbplus_intel_openmp.sh>` -->
+I have prepared specific a specific recipe for the workflow. Simply download and run
 
 For intel-based OpenMP: {download}`HELPER File <../files/helper_dftbplus_intel_openmp.sh>`
+```bash
+wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/helper_dftbplus_intel_openmp.sh
 
+
+
+```
 
 
 
