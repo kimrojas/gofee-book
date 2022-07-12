@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>DFTB+ installation &#8212; GOFEE Tutorial</title>
+    <title>Pre-compiled DFTB+ via conda &#8212; GOFEE Tutorial</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compiling DFTB+" href="dftbplus-compile.html" />
-    <link rel="prev" title="Python environment" href="python-env.html" />
+    <link rel="prev" title="Compiling DFTB+" href="dftbplus-compile.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -127,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="dftbplus-install.html">
    DFTB+ installation
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -135,14 +134,14 @@ const thebe_selector_output = ".output, .cell_output"
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="dftbplus-compile.html">
      Compiling DFTB+
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-conda.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Pre-compiled DFTB+ via conda
     </a>
    </li>
@@ -238,7 +237,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/kimrojas/gofee-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-install.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/kimrojas/gofee-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-conda.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -266,7 +265,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/docs/dftbplus-install.md"
+        <a href="../_sources/docs/dftbplus-conda.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -315,7 +314,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>DFTB+ installation</h1>
+                <h1>Pre-compiled DFTB+ via conda</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -327,114 +326,14 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="dftb-installation">
-<h1>DFTB+ installation<a class="headerlink" href="#dftb-installation" title="Permalink to this headline">#</a></h1>
-<p>There are two ways the install DFTB+</p>
-<ol class="simple">
-<li><p>via conda-forge (easier to setup but less optimized)</p></li>
-<li><p>via compilation</p></li>
-</ol>
-<!-- 
-
-
-## Using available Quantum Espresso
-
-A compiled and optimized quantum espresso is already made so you just need to use it. To use it:
-
-### Add the custom modules to ~/.bashrc
-```bash
-echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
-
-# Refresh environment
-source ~/.bashrc
-```
-
-### Activate the environment
-```bash
-module load qe/7.0
-```
-
------
-
-## Compiling from source files
-
-If you wish to compile your own or a different version of Quantum Espresso, the following procedure is the recipe for the compiled Quantum Espresso discussed above. 
-
-:::{note}
-The compiled Quantum Espresso is okay to use in most general calculations
-:::
-
-### Download the source files
-
-The source file releases can be found in [QE Releases](https://gitlab.com/QEF/q-e/-/tags). In this specific tutorial, we use the [QE 7.0 Release](https://gitlab.com/QEF/q-e/-/releases/qe-7.0)
-
-```bash
-# Download
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
-# Extract
-tar zxvf q-e-qe-7.0.tar.gz
-```
-
-### Activate compiler environment
-
-We need to activate the required depdendency modules.
-
-```bash
-module load cmake/3.18.3
-module load intel/2020.2.254
-module load intelmpi/2020.2.254
-module load python/3.8
-module load libxc/5.2.2
-module load git/2.17
-```
-
-### Build and install
-
-Follow the following commands:
-
-```bash
-# Initialize build directory
-mkdir q-e-qe-7.0/_build
-cd q-e-qe-7.0/_build
-
-# Build
-cmake \
-    -DQE_ENABLE_MPI=ON \
-    -DQE_ENABLE_TEST=ON \
-    -DQE_ENABLE_SCALAPACK=ON \
-    -DQE_FFTW_VENDOR=Intel_DFTI \
-    -DCMAKE_C_COMPILER=mpiicc \
-    -DCMAKE_Fortran_COMPILER=mpiifort \
-    -DCMAKE_INSTALL_PREFIX=../_install \
-    -DQE_ENABLE_LIBXC=ON \
-    ../
-
-# Compile
-make -j8
-
-# Install
-make install
-```
-
-### Add to PATH
-
-Add the compiled executables (fancy way to say "program") to the PATH so it can be discovered by the system
-
-```{note}
-Replace `<full-QE-directory-path>` with the full path of your quantum espresso directory.
-```
-
-```bash
-echo 'export PATH=<full-QE-directory-path>/q-e-qe-7.0/_install/bin:$PATH' >> ~/.bashrc
-
-source ~/.bashrc
-```
-
-
-
- -->
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="pre-compiled-dftb-via-conda">
+<h1>Pre-compiled DFTB+ via conda<a class="headerlink" href="#pre-compiled-dftb-via-conda" title="Permalink to this headline">#</a></h1>
+<p>A pre-compiled DFTB+ executable is available in conda-forge via conda installation.</p>
+<p>It can be simply downloaded by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -n tutorial -c conda-forge <span class="s1">&#39;dftbplus=*=mpi_openmpi_*&#39;</span> dftbplus-tools dftbplus-python
+</pre></div>
 </div>
+<p>Although this is possible, we will be proceeding via the compilation approach.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -464,19 +363,12 @@ source ~/.bashrc
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="python-env.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dftbplus-compile.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Python environment</p>
+            <p class="prev-next-title">Compiling DFTB+</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="dftbplus-compile.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Compiling DFTB+</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>

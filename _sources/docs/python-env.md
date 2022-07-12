@@ -9,6 +9,11 @@ This part can be considered as the most difficult part due to latest version of 
 Feel free to change the envname. 
 
 ```bash
+# Load compilers
+module load python/3.8
+```
+
+```bash
 envname='tutorial'
 conda create -c conda-forge -n $envname python=3.8.13 ase=3.22.1 cymem=2.0.6 cython=0.29.30 mpi4py=3.1.3 numpy=1.22.1 pytest=7.1.2  scikit-learn=1.1.1 scipy=1.8.1 dscribe=1.2.1 matplotlib=3.5.2 
 ```
