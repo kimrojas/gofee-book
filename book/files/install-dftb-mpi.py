@@ -5,18 +5,16 @@ import sys
 import subprocess as sp
 
 '''
-DFTB+ VERSION 21.2 (OpenMP)
+DFTB+ VERSION 21.2 (MPI)
 SMITH INSTALLATION using INTEL COMPILERS
 REQUIREMENTS:
       1. Pre-load environment modules = cmake, intel, intelmpi, python
       2. Activate the required python environment
-
-
 '''
 
 # SETTINGS
 version = '22.1'
-variant = 'OpenMP'
+variant = 'MPI'
 if '--no-test' in sys.argv:
     test=0
 else:
@@ -55,14 +53,9 @@ srcdir_full = os.getcwd()
 installdir = "_install"
 installdir_full = os.path.join(srcdir_full,installdir)
 COMPILER_OPT = 'FC=mpiifort  CC=mpiicc'
-python_opt = '-DENABLE_DYNAMIC_LOADING=1 -DWITH_PYTHON=1 -DBUILD_SHARED_LIBS=1 -DWITH_API=1'
+python_opt = '' #'-DENABLE_DYNAMIC_LOADING=1 -DWITH_PYTHON=1 -DBUILD_SHARED_LIBS=1 -DWITH_API=1'
 ase_opt = '-DWITH_SOCKETS=1'
-
-# python_opt = ''
-# ase_opt = ''
-
-
-CMAKE_OPT = f"-DCMAKE_INSTALL_PREFIX={installdir_full} {python_opt} {ase_opt} -DTEST_OMP_THREADS=2"
+CMAKE_OPT = f"-DCMAKE_INSTALL_PREFIX={installdir_full} {python_opt} {ase_opt} -DWITH_OMP=FALSE -DWITH_MPI=TRUE -DTEST_MPI_PROCS=2"
 
 # Rebuild build directory
 process("REBUILDING BUILD DIRECTORY")
@@ -99,7 +92,7 @@ logfile.close()
 process("CMAKE TEST PROTOCOL")
 if test:
     os.chdir(builddir)
-    command = f"ctest -j8"
+    command = f"ctest -j2"
     logfile = open('test.log', 'w')
     proc = sp.Popen(command, stdout=sp.PIPE, stderr=sp.STDOUT, universal_newlines=True, shell=True)
     for line in proc.stdout:
@@ -132,7 +125,7 @@ paths.append(f"BASE DIRECTORY = {installdir_full}")
 paths.append(f"- - - - -")
 paths.append(f"add to PATH            : {installdir_full}/bin")
 paths.append(f"add to LD_LIBRARY_PATH : {installdir_full}/lib64")
-paths.append(f"add to PYTHONPATH      : {installdir_full}/lib/python3.8/site-packages")
+# paths.append(f"add to PYTHONPATH      : {installdir_full}/lib/python3.8/site-packages")
 
 paths.append(f"set variable DFTB_LIB  :  {installdir_full}/lib64")
 

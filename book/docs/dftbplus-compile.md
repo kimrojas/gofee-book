@@ -3,8 +3,8 @@
 DFTB+ can be compiled with 4 parallelism types:
 
 1. Serial (non-parallelized)
-2. OpenMP (parallelize via threads)
-3. MPI (parallelize via mpi)
+2. OpenMP (parallelize via threads, shared memory)
+3. MPI (parallelize via mpi, distributed memory)
 4. OpenMP-MPI hybrid (parallelize via thread and mpi, not discussed)
 
 In this section, installation method of OpenMP will be discussed. 
@@ -12,6 +12,8 @@ In this section, installation method of OpenMP will be discussed.
 ```{admonition} What to use: Serial, OpenMP or MPI
 :class: tip
 **Serial** is just good for testing. 
+
+Between **OpenMP** and **MPI**, OpenMP parallization is the default way of using DFTB+. Its usage is also heavily documented. MPI, on the otherhand, is not.
 
 **OpenMP** seems good for relatively small systems that uses a single node.
 
@@ -48,39 +50,89 @@ tutordir=~/tutorial_files
 mkdir -p $tutordir/apps && cd $tutordir/apps
 ```
 
-#### 2. Prepare the installer script
+#### 2. Install using the automation script
 
 Download the installer. There are two installers available: (a) OpenMP version and (b) MPI version. Feel free to choose any, but here we use OpenMP version.
 
-##### (a) OpenMP version
+**OpenMP version** Installer
 
 ```bash
-wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-openmp.sh
+wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-openmp.py
+chmod +x install-dftb-openmp.py
+./install-dftb-openmp.py
 ```
 
-##### (b) MPI version
+```{admonition} Want the MPI version?
+:class: tip
+In case you want the MPI version, it is available here: 
+[install-dftb-mpi.py](https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-mpi.py)
+
+It works and has been tested very slightly. Hard to use.
+```
+
+#### 3. Declare the path
+
+The Installer script will return an advice on how to properly declare the PATHing of DFTB+.
+In my case, it looks like this:
+
+```
+SHOWING IMPORTANT PATHS
+BASE DIRECTORY = /home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install
+- - - - -
+add to PATH            : /home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/bin
+add to LD_LIBRARY_PATH : /home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64
+add to PYTHONPATH      : /home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg
+set variable DFTB_LIB  :  /home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64
+- - - - -
+SLAKOS FILES
+https://dftb.org/parameters/download/all-sk-files
+```
+
+There are a few ways to declare this: (a) Update startup script (bashrc or bash_profile), (b) custom module environment, or (c) exporter script. For simplicity, let's create an exporter script.
+
+Create an 'activate_dftb.sh' file:
+
 ```bash
-
+#!/bin/bash
+export PATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/bin:$PATH
+export LD_LIBRARY_PATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64:$LD_LIBRARY_PATH
+export PYTHONPATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:$PYTHONPATH
+export DFTB_LIB=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64
 ```
 
+From now on, we just use this script to activate dftb+,
 
-~/tutorial_files/apps
-
-
-
-
-
-wget https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz
-tar zxvf 22.1.tar.gz 
-cd dftbplus-22.1
-
-# Download external components
-./utils/get_opt_externals
+```bash
+source ~/tutorial_files/apps/activate_dftb.sh
 ```
 
-### Build and install
+## TESTING THE EXECUTABLE
 
-I have prepared specific a specific recipe for the workflow. Simply download and run
+To test the executable we compiled, simply follow the steps
+```bash
+# Make sure of the following environment are activate
+# module load cmake/3.18.3
+# module load intel/2020.2.254
+# module load intelmpi/2020.2.254
+# module load python/3.8
+
+# source activate tutorial
+
+# source ~/tutorial_files/apps/activate_dftb.sh
+
+cd ~/tutorial/test_suite/01_dftb_ase
+./run.sh
+```
+
+It should return the energies without error. 
+
+
+
+
+
+
+
+
 
 For intel-based OpenMP: {download}`HELPER File <../files/helper_dftbplus_intel_openmp.sh>`
 ```bash
@@ -97,106 +149,3 @@ wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/hel
 
 
 
-
-
-
-
-<!-- 
-
-
-## Using available Quantum Espresso
-
-A compiled and optimized quantum espresso is already made so you just need to use it. To use it:
-
-### Add the custom modules to ~/.bashrc
-```bash
-echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
-
-# Refresh environment
-source ~/.bashrc
-```
-
-### Activate the environment
-```bash
-module load qe/7.0
-```
-
------
-
-## Compiling from source files
-
-If you wish to compile your own or a different version of Quantum Espresso, the following procedure is the recipe for the compiled Quantum Espresso discussed above. 
-
-:::{note}
-The compiled Quantum Espresso is okay to use in most general calculations
-:::
-
-### Download the source files
-
-The source file releases can be found in [QE Releases](https://gitlab.com/QEF/q-e/-/tags). In this specific tutorial, we use the [QE 7.0 Release](https://gitlab.com/QEF/q-e/-/releases/qe-7.0)
-
-```bash
-# Download
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
-# Extract
-tar zxvf q-e-qe-7.0.tar.gz
-```
-
-### Activate compiler environment
-
-We need to activate the required depdendency modules.
-
-```bash
-module load cmake/3.18.3
-module load intel/2020.2.254
-module load intelmpi/2020.2.254
-module load python/3.8
-module load libxc/5.2.2
-module load git/2.17
-```
-
-### Build and install
-
-Follow the following commands:
-
-```bash
-# Initialize build directory
-mkdir q-e-qe-7.0/_build
-cd q-e-qe-7.0/_build
-
-# Build
-cmake \
-    -DQE_ENABLE_MPI=ON \
-    -DQE_ENABLE_TEST=ON \
-    -DQE_ENABLE_SCALAPACK=ON \
-    -DQE_FFTW_VENDOR=Intel_DFTI \
-    -DCMAKE_C_COMPILER=mpiicc \
-    -DCMAKE_Fortran_COMPILER=mpiifort \
-    -DCMAKE_INSTALL_PREFIX=../_install \
-    -DQE_ENABLE_LIBXC=ON \
-    ../
-
-# Compile
-make -j8
-
-# Install
-make install
-```
-
-### Add to PATH
-
-Add the compiled executables (fancy way to say "program") to the PATH so it can be discovered by the system
-
-```{note}
-Replace `<full-QE-directory-path>` with the full path of your quantum espresso directory.
-```
-
-```bash
-echo 'export PATH=<full-QE-directory-path>/q-e-qe-7.0/_install/bin:$PATH' >> ~/.bashrc
-
-source ~/.bashrc
-```
-
-
-
- -->
