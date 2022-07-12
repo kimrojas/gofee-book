@@ -13,11 +13,11 @@ In this section, installation method of OpenMP will be discussed.
 :class: tip
 **Serial** is just good for testing. 
 
-Between **OpenMP** and **MPI**, OpenMP parallization is the default way of using DFTB+. Its usage is also heavily documented. MPI, on the otherhand, is not.
-
 **OpenMP** seems good for relatively small systems that uses a single node.
 
 **MPI** *may* be better for larger systems that requires more than a single node. For small systems, MPI takes longer than OpenMP. 
+
+Between **OpenMP** and **MPI**, OpenMP parallization is the default way of using DFTB+. Its usage is also heavily documented. MPI, on the otherhand, is not. The non-MPI version supports more excited state methods, while the MPI version has better parallelism for many tasks.
 ```
 
 
@@ -125,22 +125,6 @@ cd ~/tutorial/test_suite/01_dftb_ase
 ```
 
 It should return the energies without error. 
-
-
-
-
-
-
-
-
-
-For intel-based OpenMP: {download}`HELPER File <../files/helper_dftbplus_intel_openmp.sh>`
-```bash
-wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/helper_dftbplus_intel_openmp.sh
-
-
-
-```
 
 
 
