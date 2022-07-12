@@ -324,27 +324,58 @@ title="Print to PDF"
     </div>
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dftb-openmp-setup">
-   DFTB+ OpenMP setup
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Compiling DFTB+
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
-     Load compilers and python environment
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dftb-openmp-setup">
+     DFTB+ OpenMP setup
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-dftb-package">
-     Download the DFTB+ package
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-and-install">
-     Build and install
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+       Load compilers and python environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-and-use-the-dftb-installer">
+       Download and use the DFTB+ installer
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#prepare-the-installation-directory">
+         1. Prepare the installation directory
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#prepare-the-installer-script">
+         2. Prepare the installer script
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#a-openmp-version">
+           (a) OpenMP version
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#b-mpi-version">
+           (b) MPI version
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-external-components">
+   Download external components
+  </a>
  </li>
 </ul>
 
@@ -365,27 +396,58 @@ title="Print to PDF"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#dftb-openmp-setup">
-   DFTB+ OpenMP setup
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Compiling DFTB+
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
-     Load compilers and python environment
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dftb-openmp-setup">
+     DFTB+ OpenMP setup
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#download-the-dftb-package">
-     Download the DFTB+ package
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#build-and-install">
-     Build and install
-    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+       Load compilers and python environment
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#download-and-use-the-dftb-installer">
+       Download and use the DFTB+ installer
+      </a>
+      <ul class="nav section-nav flex-column">
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#prepare-the-installation-directory">
+         1. Prepare the installation directory
+        </a>
+       </li>
+       <li class="toc-h4 nav-item toc-entry">
+        <a class="reference internal nav-link" href="#prepare-the-installer-script">
+         2. Prepare the installer script
+        </a>
+        <ul class="nav section-nav flex-column">
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#a-openmp-version">
+           (a) OpenMP version
+          </a>
+         </li>
+         <li class="toc-h5 nav-item toc-entry">
+          <a class="reference internal nav-link" href="#b-mpi-version">
+           (b) MPI version
+          </a>
+         </li>
+        </ul>
+       </li>
+      </ul>
+     </li>
+    </ul>
    </li>
   </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#download-external-components">
+   Download external components
+  </a>
  </li>
 </ul>
 
@@ -428,26 +490,55 @@ module load python/3.8
 </pre></div>
 </div>
 </section>
-<section id="download-the-dftb-package">
-<h3>Download the DFTB+ package<a class="headerlink" href="#download-the-dftb-package" title="Permalink to this headline">#</a></h3>
+<section id="download-and-use-the-dftb-installer">
+<h3>Download and use the DFTB+ installer<a class="headerlink" href="#download-and-use-the-dftb-installer" title="Permalink to this headline">#</a></h3>
 <p>We will use the DFTB+ version 22.1 (Other releases are available <a class="reference external" href="https://github.com/dftbplus/dftbplus/releases/">here</a>)</p>
 <p>I assume that <code class="docutils literal notranslate"><span class="pre">tutorial_files</span></code> is in the home directory.</p>
+<section id="prepare-the-installation-directory">
+<h4>1. Prepare the installation directory<a class="headerlink" href="#prepare-the-installation-directory" title="Permalink to this headline">#</a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download source files</span>
-<span class="nb">cd</span> ~/tutorial_files/apps
-wget https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz
-tar zxvf <span class="m">22</span>.1.tar.gz 
-<span class="nb">cd</span> dftbplus-22.1
-
-<span class="c1"># Download external components</span>
-./utils/get_opt_externals
+<span class="nv">tutordir</span><span class="o">=</span>~/tutorial_files
+mkdir -p <span class="nv">$tutordir</span>/apps <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$tutordir</span>/apps
 </pre></div>
 </div>
 </section>
-<section id="build-and-install">
-<h3>Build and install<a class="headerlink" href="#build-and-install" title="Permalink to this headline">#</a></h3>
-<p>I have prepared specific a specific recipe for the workflow. Simply download and run</p>
-<p>For intel-based OpenMP: <a class="reference download internal" download="" href="../_downloads/785fb6af059de7a186289562a0c97dd5/helper_dftbplus_intel_openmp.sh"><code class="xref download docutils literal notranslate"><span class="pre">HELPER</span> <span class="pre">File</span></code></a></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/helper_dftbplus_intel_openmp.sh
+<section id="prepare-the-installer-script">
+<h4>2. Prepare the installer script<a class="headerlink" href="#prepare-the-installer-script" title="Permalink to this headline">#</a></h4>
+<p>Download the installer. There are two installers available: (a) OpenMP version and (b) MPI version. Feel free to choose any, but here we use OpenMP version.</p>
+<section id="a-openmp-version">
+<h5>(a) OpenMP version<a class="headerlink" href="#a-openmp-version" title="Permalink to this headline">#</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-openmp.sh
+</pre></div>
+</div>
+</section>
+<section id="b-mpi-version">
+<h5>(b) MPI version<a class="headerlink" href="#b-mpi-version" title="Permalink to this headline">#</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>~/tutorial_files/apps</p>
+<p>wget <a class="reference external" href="https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz">https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz</a>
+tar zxvf 22.1.tar.gz
+cd dftbplus-22.1</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="download-external-components">
+<h1>Download external components<a class="headerlink" href="#download-external-components" title="Permalink to this headline">#</a></h1>
+<p>./utils/get_opt_externals</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+### Build and install
+
+I have prepared specific a specific recipe for the workflow. Simply download and run
+
+For intel-based OpenMP: {download}`HELPER File &lt;../files/helper_dftbplus_intel_openmp.sh&gt;`
+```bash
+wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/helper_dftbplus_intel_openmp.sh
+
+
+
 </pre></div>
 </div>
 <!-- 
@@ -549,8 +640,6 @@ source ~/.bashrc
 
 
  -->
-</section>
-</section>
 </section>
 
     <script type="text/x-thebe-config">

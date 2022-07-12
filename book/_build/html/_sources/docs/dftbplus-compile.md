@@ -34,15 +34,42 @@ module load python/3.8
 source activate tutorial
 ```
 
-### Download the DFTB+ package
+### Download and use the DFTB+ installer
 
 We will use the DFTB+ version 22.1 (Other releases are available [here](https://github.com/dftbplus/dftbplus/releases/))
 
 I assume that `tutorial_files` is in the home directory.
 
+#### 1. Prepare the installation directory
+
 ```bash
 # Download source files
-cd ~/tutorial_files/apps
+tutordir=~/tutorial_files
+mkdir -p $tutordir/apps && cd $tutordir/apps
+```
+
+#### 2. Prepare the installer script
+
+Download the installer. There are two installers available: (a) OpenMP version and (b) MPI version. Feel free to choose any, but here we use OpenMP version.
+
+##### (a) OpenMP version
+
+```bash
+wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-openmp.sh
+```
+
+##### (b) MPI version
+```bash
+
+```
+
+
+~/tutorial_files/apps
+
+
+
+
+
 wget https://github.com/dftbplus/dftbplus/archive/refs/tags/22.1.tar.gz
 tar zxvf 22.1.tar.gz 
 cd dftbplus-22.1

@@ -15,7 +15,8 @@ conda create -c conda-forge -n $envname python=3.8.13 ase=3.22.1 cymem=2.0.6 cyt
 
 ### via exact `yml` specifications
 
----
+
+<hr>
 
 
 ## General information on the requirements

@@ -336,20 +336,21 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#via-yml">
-     via
+    <a class="reference internal nav-link" href="#via-exact-yml-specifications">
+     via exact
      <code class="docutils literal notranslate">
       <span class="pre">
-       .yml
+       yml
       </span>
      </code>
+     specifications
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-requirements">
-   General requirements
+  <a class="reference internal nav-link" href="#general-information-on-the-requirements">
+   General information on the requirements
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -399,20 +400,21 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#via-yml">
-     via
+    <a class="reference internal nav-link" href="#via-exact-yml-specifications">
+     via exact
      <code class="docutils literal notranslate">
       <span class="pre">
-       .yml
+       yml
       </span>
      </code>
+     specifications
     </a>
    </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#general-requirements">
-   General requirements
+  <a class="reference internal nav-link" href="#general-information-on-the-requirements">
+   General information on the requirements
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
@@ -451,17 +453,17 @@ title="Print to PDF"
 <h3>via Conda creation<a class="headerlink" href="#via-conda-creation" title="Permalink to this headline">#</a></h3>
 <p>Feel free to change the envname.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">envname</span><span class="o">=</span><span class="s1">&#39;tutorial&#39;</span>
-conda create -c conda-forge -n <span class="nv">$envname</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8 <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8.13 <span class="nv">ase</span><span class="o">=</span><span class="m">3</span>.22.1 <span class="nv">cymem</span><span class="o">=</span><span class="m">2</span>.0.6 <span class="nv">cython</span><span class="o">=</span><span class="m">0</span>.29.30 <span class="nv">mpi4py</span><span class="o">=</span><span class="m">3</span>.1.3 <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.22.1 <span class="nv">pytest</span><span class="o">=</span><span class="m">7</span>.1.2  scikit-learn<span class="o">=</span><span class="m">1</span>.1.1 <span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.8.1 <span class="nv">dscribe</span><span class="o">=</span><span class="m">1</span>.2.1 <span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.2 
+conda create -c conda-forge -n <span class="nv">$envname</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8.13 <span class="nv">ase</span><span class="o">=</span><span class="m">3</span>.22.1 <span class="nv">cymem</span><span class="o">=</span><span class="m">2</span>.0.6 <span class="nv">cython</span><span class="o">=</span><span class="m">0</span>.29.30 <span class="nv">mpi4py</span><span class="o">=</span><span class="m">3</span>.1.3 <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.22.1 <span class="nv">pytest</span><span class="o">=</span><span class="m">7</span>.1.2  scikit-learn<span class="o">=</span><span class="m">1</span>.1.1 <span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.8.1 <span class="nv">dscribe</span><span class="o">=</span><span class="m">1</span>.2.1 <span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.2 
 </pre></div>
 </div>
 </section>
-<section id="via-yml">
-<h3>via <code class="docutils literal notranslate"><span class="pre">.yml</span></code><a class="headerlink" href="#via-yml" title="Permalink to this headline">#</a></h3>
-<p>For</p>
+<section id="via-exact-yml-specifications">
+<h3>via exact <code class="docutils literal notranslate"><span class="pre">yml</span></code> specifications<a class="headerlink" href="#via-exact-yml-specifications" title="Permalink to this headline">#</a></h3>
+<hr>
 </section>
 </section>
-<section id="general-requirements">
-<h2>General requirements<a class="headerlink" href="#general-requirements" title="Permalink to this headline">#</a></h2>
+<section id="general-information-on-the-requirements">
+<h2>General information on the requirements<a class="headerlink" href="#general-information-on-the-requirements" title="Permalink to this headline">#</a></h2>
 <section id="gofee">
 <h3>GOFEE<a class="headerlink" href="#gofee" title="Permalink to this headline">#</a></h3>
 <ol class="simple">
@@ -487,8 +489,17 @@ conda create -c conda-forge -n <span class="nv">$envname</span> <span class="nv"
 <h3>Custom requirements<a class="headerlink" href="#custom-requirements" title="Permalink to this headline">#</a></h3>
 <p>The following requirements are tested (locally and on smith). The versions are hard set for future reproducability.</p>
 <ol class="simple">
-<li><p>numpy etc</p></li>
-<li><p>ase etc</p></li>
+<li><p>python=3.8</p></li>
+<li><p>ase=3.22.1</p></li>
+<li><p>cymem=2.0.6</p></li>
+<li><p>cython=0.29.30</p></li>
+<li><p>mpi4py=3.1.3</p></li>
+<li><p>numpy=1.22.1</p></li>
+<li><p>pytest=7.1.2</p></li>
+<li><p>scikit-learn=1.1.1</p></li>
+<li><p>scipy=1.8.1</p></li>
+<li><p>dscribe=1.2.1</p></li>
+<li><p>matplotlib=3.5.2</p></li>
 </ol>
 </section>
 </section>
