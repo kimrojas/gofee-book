@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Pre-compiled DFTB+ via conda &#8212; GOFEE Tutorial</title>
+    <title>GOFEE Installation &#8212; GOFEE Tutorial</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -54,8 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GOFEE Installation" href="gofee-install.html" />
-    <link rel="prev" title="Compiling DFTB+" href="dftbplus-compile.html" />
+    <link rel="prev" title="Pre-compiled DFTB+ via conda" href="dftbplus-conda.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -126,30 +125,30 @@ const thebe_selector_output = ".output, .cell_output"
    Python environment
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="dftbplus-install.html">
    DFTB+ installation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="dftbplus-compile.html">
      Compiling DFTB+
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="dftbplus-conda.html">
      Pre-compiled DFTB+ via conda
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="gofee-install.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    GOFEE Installation
   </a>
  </li>
@@ -243,7 +242,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/kimrojas/gofee-book/issues/new?title=Issue%20on%20page%20%2Fdocs/dftbplus-conda.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/kimrojas/gofee-book/issues/new?title=Issue%20on%20page%20%2Fdocs/gofee-install.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -271,7 +270,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../_sources/docs/dftbplus-conda.md"
+        <a href="../_sources/docs/gofee-install.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -308,23 +307,94 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-procedure">
+   Installation procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-the-file">
+     Download the file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-gofee-package">
+     Build GOFEE package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-an-activation-file">
+     Create an activation file
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Pre-compiled DFTB+ via conda</h1>
+                <h1>GOFEE Installation</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation-procedure">
+   Installation procedure
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-the-file">
+     Download the file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#build-gofee-package">
+     Build GOFEE package
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#create-an-activation-file">
+     Create an activation file
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -332,14 +402,36 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="pre-compiled-dftb-via-conda">
-<h1>Pre-compiled DFTB+ via conda<a class="headerlink" href="#pre-compiled-dftb-via-conda" title="Permalink to this headline">#</a></h1>
-<p>A pre-compiled DFTB+ executable is available in conda-forge via conda installation.</p>
-<p>It can be simply downloaded by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -n tutorial -c conda-forge <span class="s1">&#39;dftbplus=*=mpi_openmpi_*&#39;</span> dftbplus-tools dftbplus-python
+  <section class="tex2jax_ignore mathjax_ignore" id="gofee-installation">
+<h1>GOFEE Installation<a class="headerlink" href="#gofee-installation" title="Permalink to this headline">#</a></h1>
+<section id="installation-procedure">
+<h2>Installation procedure<a class="headerlink" href="#installation-procedure" title="Permalink to this headline">#</a></h2>
+<section id="download-the-file">
+<h3>Download the file<a class="headerlink" href="#download-the-file" title="Permalink to this headline">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/tutorial_files/apps
+wget http://grendel-www.cscaa.dk/mkb/_downloads/694ca887012ad412602f2a45ee7b2ea2/gofee_stable.tar.gz
+tar zxvf gofee_stable.tar.gz
 </pre></div>
 </div>
-<p>Although this is possible, we will be proceeding via the compilation approach.</p>
+</section>
+<section id="build-gofee-package">
+<h3>Build GOFEE package<a class="headerlink" href="#build-gofee-package" title="Permalink to this headline">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> gofee-master
+./build_code
+</pre></div>
+</div>
+</section>
+<section id="create-an-activation-file">
+<h3>Create an activation file<a class="headerlink" href="#create-an-activation-file" title="Permalink to this headline">#</a></h3>
+<p>Create a gofee activator <code class="docutils literal notranslate"><span class="pre">activate_gofee.sh</span></code> with the following contents:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># adjust the path accordingly</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>/home/krojas/tutorial_files/apps/gofee-master:<span class="nv">$PYTHONPATH</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -369,19 +461,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="dftbplus-compile.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dftbplus-conda.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Compiling DFTB+</p>
+            <p class="prev-next-title">Pre-compiled DFTB+ via conda</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="gofee-install.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">GOFEE Installation</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
