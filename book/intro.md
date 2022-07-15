@@ -12,7 +12,7 @@ The general topics to explore in this documentation are:
 
 <hr>
 
-Download tutorial files here: {download}`test-suite.tar.gz<files/test-suite-tar.gz>`.
+Download tutorial files here: {download}`test-suite.tar.gz <files/test-suite.tar.gz>`.
 
 Or use `wget` in command line
 ```bash

@@ -30,4 +30,7 @@ parts:
     - file: docs/usage-t10
     - file: docs/usage-t11
     - file: docs/usage-t12
+- caption: Benchmark
+  chapters:
+  - file: docs/benchmark-parallelization
 
