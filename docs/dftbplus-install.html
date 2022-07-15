@@ -137,6 +137,99 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
 </ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="usage-overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-dftb.html">
+   DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t01.html">
+     H2O system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t02.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t03.html">
+     HB sheet system - parallelized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee.html">
+   GOFEE calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t04.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t05.html">
+     C6H6 system - parallelized
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t06.html">
+     C6H6 system - multirun
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee-dftb.html">
+   GOFEE with DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t10.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t11.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t12.html">
+     Ti5O10 system
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
 
     </div>
 </nav></div>
@@ -505,10 +598,12 @@ In my case, it looks like this:</p>
 <p>There are a few ways to declare this: (a) Update startup script (bashrc or bash_profile), (b) custom module environment, or (c) exporter script. For simplicity, let’s create an exporter script.</p>
 <p>Create an <code class="docutils literal notranslate"><span class="pre">activate_dftb.sh</span></code> file:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/bin:<span class="nv">$PATH</span>
-<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
-<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:<span class="nv">$PYTHONPATH</span>
-<span class="nb">export</span> <span class="nv">DFTB_LIB</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64
+<span class="nv">installdir</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:<span class="nv">$PYTHONPATH</span>
+<span class="nb">export</span> <span class="nv">DFTB_LIB</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib64
 </pre></div>
 </div>
 <p>From now on, we just use this script to activate dftb+,</p>

@@ -97,10 +97,12 @@ Create an `activate_dftb.sh` file:
 
 ```bash
 #!/bin/bash
-export PATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/bin:$PATH
-export LD_LIBRARY_PATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64:$LD_LIBRARY_PATH
-export PYTHONPATH=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:$PYTHONPATH
-export DFTB_LIB=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install/lib64
+installdir=/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install
+
+export PATH=${installdir}/bin:$PATH
+export LD_LIBRARY_PATH=${installdir}/lib64:$LD_LIBRARY_PATH
+export PYTHONPATH=${installdir}/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:$PYTHONPATH
+export DFTB_LIB=${installdir}/lib64
 ```
 
 From now on, we just use this script to activate dftb+,

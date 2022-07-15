@@ -23,7 +23,6 @@ Create a gofee activator `activate_gofee.sh` with the following contents:
 
 ```bash
 #!/bin/bash
-
-# adjust the path accordingly
-export PYTHONPATH=/home/krojas/tutorial_files/apps/gofee-master:$PYTHONPATH
+installdir=/home/krojas/tutorial_files/apps/gofee-master
+export PYTHONPATH=${installdir}:$PYTHONPATH
 ```

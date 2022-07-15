@@ -54,6 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Overview" href="usage-overview.html" />
     <link rel="prev" title="DFTB+ installation" href="dftbplus-install.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -134,6 +135,99 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="current reference internal" href="#">
    GOFEE Installation
   </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="usage-overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-dftb.html">
+   DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t01.html">
+     H2O system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t02.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t03.html">
+     HB sheet system - parallelized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee.html">
+   GOFEE calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t04.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t05.html">
+     C6H6 system - parallelized
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t06.html">
+     C6H6 system - multirun
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee-dftb.html">
+   GOFEE with DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t10.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t11.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t12.html">
+     Ti5O10 system
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -408,9 +502,8 @@ tar zxvf gofee_stable.tar.gz
 <h3>Create an activation file<a class="headerlink" href="#create-an-activation-file" title="Permalink to this headline">#</a></h3>
 <p>Create a gofee activator <code class="docutils literal notranslate"><span class="pre">activate_gofee.sh</span></code> with the following contents:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-
-<span class="c1"># adjust the path accordingly</span>
-<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span>/home/krojas/tutorial_files/apps/gofee-master:<span class="nv">$PYTHONPATH</span>
+<span class="nv">installdir</span><span class="o">=</span>/home/krojas/tutorial_files/apps/gofee-master
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>:<span class="nv">$PYTHONPATH</span>
 </pre></div>
 </div>
 </section>
@@ -450,6 +543,13 @@ tar zxvf gofee_stable.tar.gz
             <p class="prev-next-subtitle">previous</p>
             <p class="prev-next-title">DFTB+ installation</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="usage-overview.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Overview</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
