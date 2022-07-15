@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Compiling DFTB+" href="dftbplus-compile.html" />
+    <link rel="next" title="GOFEE Installation" href="gofee-install.html" />
     <link rel="prev" title="Python environment" href="python-env.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -126,24 +126,105 @@ const thebe_selector_output = ".output, .cell_output"
    Python environment
   </a>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    DFTB+ installation
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gofee-install.html">
+   GOFEE Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="usage-overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-dftb.html">
+   DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
    <i class="fas fa-chevron-down">
    </i>
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-compile.html">
-     Compiling DFTB+
+    <a class="reference internal" href="usage-t01.html">
+     H2O system
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-conda.html">
-     Pre-compiled DFTB+ via conda
+    <a class="reference internal" href="usage-t02.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t03.html">
+     HB sheet system - parallelized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee.html">
+   GOFEE calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t04.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t05.html">
+     C6H6 system - parallelized
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t06.html">
+     C6H6 system - multirun
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee-dftb.html">
+   GOFEE with DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t10.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t11.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t12.html">
+     Ti5O10 system
     </a>
    </li>
   </ul>
@@ -303,12 +384,70 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation-method">
+   Compilation method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+     Load compilers and python environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-and-use-the-dftb-installer">
+     Download and use the DFTB+ installer
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prepare-the-installation-directory">
+       1. Prepare the installation directory
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-using-the-automation-script">
+       2. Install using the automation script
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declare-the-path">
+     Declare the path
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conda-method-a-pre-compiled-version">
+   Conda method (a pre-compiled version)
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -320,6 +459,53 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compilation-method">
+   Compilation method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#load-compilers-and-python-environment">
+     Load compilers and python environment
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#download-and-use-the-dftb-installer">
+     Download and use the DFTB+ installer
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#prepare-the-installation-directory">
+       1. Prepare the installation directory
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#install-using-the-automation-script">
+       2. Install using the automation script
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#declare-the-path">
+     Declare the path
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#conda-method-a-pre-compiled-version">
+   Conda method (a pre-compiled version)
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -329,112 +515,114 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="dftb-installation">
 <h1>DFTB+ installation<a class="headerlink" href="#dftb-installation" title="Permalink to this headline">#</a></h1>
-<p>There are two ways the install DFTB+</p>
+<p>There are two ways the install DFTB+:</p>
 <ol class="simple">
 <li><p>via conda-forge (easier to setup but less optimized)</p></li>
 <li><p>via compilation</p></li>
 </ol>
-<!-- 
-
-
-## Using available Quantum Espresso
-
-A compiled and optimized quantum espresso is already made so you just need to use it. To use it:
-
-### Add the custom modules to ~/.bashrc
-```bash
-echo "module use --append /home/krojas/share/modulefiles" >> ~/.bashrc
-
-# Refresh environment
-source ~/.bashrc
-```
-
-### Activate the environment
-```bash
-module load qe/7.0
-```
-
------
-
-## Compiling from source files
-
-If you wish to compile your own or a different version of Quantum Espresso, the following procedure is the recipe for the compiled Quantum Espresso discussed above. 
-
-:::{note}
-The compiled Quantum Espresso is okay to use in most general calculations
-:::
-
-### Download the source files
-
-The source file releases can be found in [QE Releases](https://gitlab.com/QEF/q-e/-/tags). In this specific tutorial, we use the [QE 7.0 Release](https://gitlab.com/QEF/q-e/-/releases/qe-7.0)
-
-```bash
-# Download
-wget https://gitlab.com/QEF/q-e/-/archive/qe-7.0/q-e-qe-7.0.tar.gz
-# Extract
-tar zxvf q-e-qe-7.0.tar.gz
-```
-
-### Activate compiler environment
-
-We need to activate the required depdendency modules.
-
-```bash
+<p>In this documentation, the compilation method will be discussed in detail.</p>
+<section id="compilation-method">
+<h2>Compilation method<a class="headerlink" href="#compilation-method" title="Permalink to this headline">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">DFTB+</span></code> executable can be compiled with 4 parallelism types:</p>
+<ol class="simple">
+<li><p>Serial (non-parallelized)</p></li>
+<li><p>OpenMP (parallelize via threads, shared memory)</p></li>
+<li><p>MPI (parallelize via mpi, distributed memory)</p></li>
+<li><p>OpenMP-MPI hybrid (parallelize via thread and mpi, not discussed)</p></li>
+</ol>
+<p>For simplicity and stability <strong>OpenMP</strong> parallelism will be used. This is also the default parallelism of <code class="docutils literal notranslate"><span class="pre">DFTB+</span></code></p>
+<div class="tip admonition">
+<p class="admonition-title">What to use: Serial, OpenMP or MPI</p>
+<p><strong>Serial</strong> is just good for testing.</p>
+<p><strong>OpenMP</strong> seems good for relatively small systems that uses a single node.</p>
+<p><strong>MPI</strong> <em>may</em> be better for larger systems that requires more than a single node. For small systems, MPI takes longer than OpenMP.</p>
+<p>Between <strong>OpenMP</strong> and <strong>MPI</strong>, OpenMP parallization is the default way of using DFTB+. Its usage is also heavily documented. MPI, on the otherhand, is not. The non-MPI version supports more excited state methods, while the MPI version has better parallelism for many tasks.</p>
+</div>
+<section id="load-compilers-and-python-environment">
+<h3>Load compilers and python environment<a class="headerlink" href="#load-compilers-and-python-environment" title="Permalink to this headline">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load compilers</span>
 module load cmake/3.18.3
 module load intel/2020.2.254
 module load intelmpi/2020.2.254
 module load python/3.8
-module load libxc/5.2.2
-module load git/2.17
-```
 
-### Build and install
-
-Follow the following commands:
-
-```bash
-# Initialize build directory
-mkdir q-e-qe-7.0/_build
-cd q-e-qe-7.0/_build
-
-# Build
-cmake \
-    -DQE_ENABLE_MPI=ON \
-    -DQE_ENABLE_TEST=ON \
-    -DQE_ENABLE_SCALAPACK=ON \
-    -DQE_FFTW_VENDOR=Intel_DFTI \
-    -DCMAKE_C_COMPILER=mpiicc \
-    -DCMAKE_Fortran_COMPILER=mpiifort \
-    -DCMAKE_INSTALL_PREFIX=../_install \
-    -DQE_ENABLE_LIBXC=ON \
-    ../
-
-# Compile
-make -j8
-
-# Install
-make install
-```
-
-### Add to PATH
-
-Add the compiled executables (fancy way to say "program") to the PATH so it can be discovered by the system
-
-```{note}
-Replace `<full-QE-directory-path>` with the full path of your quantum espresso directory.
-```
-
-```bash
-echo 'export PATH=<full-QE-directory-path>/q-e-qe-7.0/_install/bin:$PATH' >> ~/.bashrc
-
-source ~/.bashrc
-```
-
-
-
- -->
-<div class="toctree-wrapper compound">
+<span class="c1"># Load python environment</span>
+<span class="nb">source</span> activate tutorial
+</pre></div>
 </div>
+</section>
+<section id="download-and-use-the-dftb-installer">
+<h3>Download and use the DFTB+ installer<a class="headerlink" href="#download-and-use-the-dftb-installer" title="Permalink to this headline">#</a></h3>
+<p>We will use the DFTB+ version 22.1 (Other releases are available <a class="reference external" href="https://github.com/dftbplus/dftbplus/releases/">here</a>)</p>
+<p>I assume that <code class="docutils literal notranslate"><span class="pre">tutorial_files</span></code> is in the home directory.</p>
+<section id="prepare-the-installation-directory">
+<h4>1. Prepare the installation directory<a class="headerlink" href="#prepare-the-installation-directory" title="Permalink to this headline">#</a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Download source files</span>
+<span class="nv">tutordir</span><span class="o">=</span>~/tutorial_files
+mkdir -p <span class="nv">$tutordir</span>/apps <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="nv">$tutordir</span>/apps
+</pre></div>
+</div>
+</section>
+<section id="install-using-the-automation-script">
+<h4>2. Install using the automation script<a class="headerlink" href="#install-using-the-automation-script" title="Permalink to this headline">#</a></h4>
+<p>Download the installer. There are two installers available: (a) OpenMP version and (b) MPI version. Feel free to choose any, but here we use OpenMP version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-openmp.py
+chmod +x install-dftb-openmp.py
+./install-dftb-openmp.py
+</pre></div>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Want the MPI version?</p>
+<p>In case you want the MPI version, it is available here:
+<a class="reference external" href="https://raw.githubusercontent.com/kimrojas/gofee-book/master/book/files/install-dftb-mpi.py">install-dftb-mpi.py</a></p>
+<p>It works and has been tested very slightly. Hard to use.</p>
+</div>
+</section>
+</section>
+<section id="declare-the-path">
+<h3>Declare the path<a class="headerlink" href="#declare-the-path" title="Permalink to this headline">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">install-dftb-mpi.py</span></code> installer script will return an advice on how to properly declare the PATHing of DFTB+.
+In my case, it looks like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SHOWING</span> <span class="n">IMPORTANT</span> <span class="n">PATHS</span>
+<span class="n">BASE</span> <span class="n">DIRECTORY</span> <span class="o">=</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">krojas</span><span class="o">/</span><span class="n">tutorial_files</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">dftbplus</span><span class="o">-</span><span class="mf">22.1</span><span class="o">-</span><span class="n">OpenMP</span><span class="o">/</span><span class="n">_install</span>
+<span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span>
+<span class="n">add</span> <span class="n">to</span> <span class="n">PATH</span>            <span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">krojas</span><span class="o">/</span><span class="n">tutorial_files</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">dftbplus</span><span class="o">-</span><span class="mf">22.1</span><span class="o">-</span><span class="n">OpenMP</span><span class="o">/</span><span class="n">_install</span><span class="o">/</span><span class="nb">bin</span>
+<span class="n">add</span> <span class="n">to</span> <span class="n">LD_LIBRARY_PATH</span> <span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">krojas</span><span class="o">/</span><span class="n">tutorial_files</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">dftbplus</span><span class="o">-</span><span class="mf">22.1</span><span class="o">-</span><span class="n">OpenMP</span><span class="o">/</span><span class="n">_install</span><span class="o">/</span><span class="n">lib64</span>
+<span class="n">add</span> <span class="n">to</span> <span class="n">PYTHONPATH</span>      <span class="p">:</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">krojas</span><span class="o">/</span><span class="n">tutorial_files</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">dftbplus</span><span class="o">-</span><span class="mf">22.1</span><span class="o">-</span><span class="n">OpenMP</span><span class="o">/</span><span class="n">_install</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.8</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">pythonapi</span><span class="o">-</span><span class="mf">0.1</span><span class="o">-</span><span class="n">py3</span><span class="mf">.8</span><span class="o">.</span><span class="n">egg</span>
+<span class="nb">set</span> <span class="n">variable</span> <span class="n">DFTB_LIB</span>  <span class="p">:</span>  <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">krojas</span><span class="o">/</span><span class="n">tutorial_files</span><span class="o">/</span><span class="n">apps</span><span class="o">/</span><span class="n">dftbplus</span><span class="o">-</span><span class="mf">22.1</span><span class="o">-</span><span class="n">OpenMP</span><span class="o">/</span><span class="n">_install</span><span class="o">/</span><span class="n">lib64</span>
+<span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span> <span class="o">-</span>
+<span class="n">SLAKOS</span> <span class="n">FILES</span>
+<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">dftb</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">parameters</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="nb">all</span><span class="o">-</span><span class="n">sk</span><span class="o">-</span><span class="n">files</span>
+</pre></div>
+</div>
+<p>There are a few ways to declare this: (a) Update startup script (bashrc or bash_profile), (b) custom module environment, or (c) exporter script. For simplicity, let’s create an exporter script.</p>
+<p>Create an <code class="docutils literal notranslate"><span class="pre">activate_dftb.sh</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">installdir</span><span class="o">=</span>/home/krojas/tutorial_files/apps/dftbplus-22.1-OpenMP/_install
+
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+<span class="nb">export</span> <span class="nv">PYTHONPATH</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib/python3.8/site-packages/pythonapi-0.1-py3.8.egg:<span class="nv">$PYTHONPATH</span>
+<span class="nb">export</span> <span class="nv">DFTB_LIB</span><span class="o">=</span><span class="si">${</span><span class="nv">installdir</span><span class="si">}</span>/lib64
+</pre></div>
+</div>
+<p>From now on, we just use this script to activate dftb+,</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/tutorial_files/apps/activate_dftb.sh
+</pre></div>
+</div>
+<p><strong>INSTALLATION COMPLETE</strong></p>
+<hr>
+</section>
+</section>
+<section id="conda-method-a-pre-compiled-version">
+<h2>Conda method (a pre-compiled version)<a class="headerlink" href="#conda-method-a-pre-compiled-version" title="Permalink to this headline">#</a></h2>
+<p>A pre-compiled DFTB+ executable is available in conda-forge via conda installation.</p>
+<p>It can be simply downloaded by</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -n tutorial -c conda-forge <span class="s1">&#39;dftbplus=*=mpi_openmpi_*&#39;</span> dftbplus-tools dftbplus-python
+</pre></div>
+</div>
+<p><strong>INSTALLATION COMPLETE</strong></p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -471,10 +659,10 @@ source ~/.bashrc
             <p class="prev-next-title">Python environment</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="dftbplus-compile.html" title="next page">
+    <a class='right-next' id="next-link" href="gofee-install.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Compiling DFTB+</p>
+        <p class="prev-next-title">GOFEE Installation</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

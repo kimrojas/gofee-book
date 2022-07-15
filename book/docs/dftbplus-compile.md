@@ -120,7 +120,7 @@ To test the executable we compiled, simply follow the steps
 
 # source ~/tutorial_files/apps/activate_dftb.sh
 
-cd ~/tutorial/test_suite/01_dftb_ase
+cd ~/tutorial_files/test_suite/01_dftb_ase
 ./run.sh
 ```
 

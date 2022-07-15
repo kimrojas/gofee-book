@@ -10,10 +10,14 @@ The general topics to explore in this documentation are:
 4. Testing GOFEE and DFTB+ installation
 5. Using GOFEE with DFTB+ as the calculator
 
-Download tutorial files here:  {download}`Tutorial files <files/tutorial_files.tar.gz>`.
+<hr>
+
+Download tutorial files here: {download}`test-suite.tar.gz<files/test-suite-tar.gz>`.
+
+Or use `wget` in command line
 ```bash
 # Command line download
-wget https://github.com/kimrojas/gofee-book/raw/master/book/files/tutorial_files.tar.gz
+wget https://github.com/kimrojas/gofee-book/raw/master/book/files/test-suite.tar.gz
 ```
 
 :::{note}

@@ -126,9 +126,31 @@ const thebe_selector_output = ".output, .cell_output"
    Python environment
   </a>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1">
   <a class="reference internal" href="dftbplus-install.html">
    DFTB+ installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gofee-install.html">
+   GOFEE Installation
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorial
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="usage-overview.html">
+   Overview
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-dftb.html">
+   DFTB+ calculation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -137,13 +159,72 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-compile.html">
-     Compiling DFTB+
+    <a class="reference internal" href="usage-t01.html">
+     H2O system
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dftbplus-conda.html">
-     Pre-compiled DFTB+ via conda
+    <a class="reference internal" href="usage-t02.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t03.html">
+     HB sheet system - parallelized
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee.html">
+   GOFEE calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t04.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t05.html">
+     C6H6 system - parallelized
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t06.html">
+     C6H6 system - multirun
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="usage-gofee-dftb.html">
+   GOFEE with DFTB+ calculation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t10.html">
+     C6H6 system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t11.html">
+     HB sheet system
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage-t12.html">
+     Ti5O10 system
     </a>
    </li>
   </ul>
@@ -336,11 +417,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#via-exact-yml-specifications">
+    <a class="reference internal nav-link" href="#via-exact-yaml-specifications">
      via exact
      <code class="docutils literal notranslate">
       <span class="pre">
-       yml
+       YAML
       </span>
      </code>
      specifications
@@ -400,11 +481,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#via-exact-yml-specifications">
+    <a class="reference internal nav-link" href="#via-exact-yaml-specifications">
      via exact
      <code class="docutils literal notranslate">
       <span class="pre">
-       yml
+       YAML
       </span>
      </code>
      specifications
@@ -454,15 +535,184 @@ title="Print to PDF"
 <p>Feel free to change the envname.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load compilers</span>
 module load python/3.8
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">envname</span><span class="o">=</span><span class="s1">&#39;tutorial&#39;</span>
-conda create -c conda-forge -n <span class="nv">$envname</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8.13 <span class="nv">ase</span><span class="o">=</span><span class="m">3</span>.22.1 <span class="nv">cymem</span><span class="o">=</span><span class="m">2</span>.0.6 <span class="nv">cython</span><span class="o">=</span><span class="m">0</span>.29.30 <span class="nv">mpi4py</span><span class="o">=</span><span class="m">3</span>.1.3 <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.22.1 <span class="nv">pytest</span><span class="o">=</span><span class="m">7</span>.1.2  scikit-learn<span class="o">=</span><span class="m">1</span>.1.1 <span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.8.1 <span class="nv">dscribe</span><span class="o">=</span><span class="m">1</span>.2.1 <span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.2 
+
+<span class="nv">envname</span><span class="o">=</span><span class="s1">&#39;tutorial&#39;</span>
+
+conda create -c conda-forge -n <span class="nv">$envname</span> <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.8.13 <span class="nv">ase</span><span class="o">=</span><span class="m">3</span>.17 <span class="nv">cymem</span><span class="o">=</span><span class="m">2</span>.0.6 <span class="nv">cython</span><span class="o">=</span><span class="m">0</span>.29.30 <span class="nv">mpi4py</span><span class="o">=</span><span class="m">3</span>.1.3 <span class="nv">numpy</span><span class="o">=</span><span class="m">1</span>.22.1 <span class="nv">pytest</span><span class="o">=</span><span class="m">7</span>.1.2  scikit-learn<span class="o">=</span><span class="m">1</span>.1.1 <span class="nv">scipy</span><span class="o">=</span><span class="m">1</span>.8.1 <span class="nv">dscribe</span><span class="o">=</span><span class="m">1</span>.2.1 <span class="nv">matplotlib</span><span class="o">=</span><span class="m">3</span>.5.2
 </pre></div>
 </div>
 </section>
-<section id="via-exact-yml-specifications">
-<h3>via exact <code class="docutils literal notranslate"><span class="pre">yml</span></code> specifications<a class="headerlink" href="#via-exact-yml-specifications" title="Permalink to this headline">#</a></h3>
+<section id="via-exact-yaml-specifications">
+<h3>via exact <code class="docutils literal notranslate"><span class="pre">YAML</span></code> specifications<a class="headerlink" href="#via-exact-yaml-specifications" title="Permalink to this headline">#</a></h3>
+<p>Use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env create -f environment.yml
+</pre></div>
+</div>
+<p><strong>The <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> YAML file</strong></p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tutorial</span><span class="w"></span>
+<span class="nt">channels</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">defaults</span><span class="w"></span>
+<span class="nt">dependencies</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_libgcc_mutex=0.1=conda_forge</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_openmp_mutex=4.5=2_gnu</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">alsa-lib=1.2.6.1=h7f98852_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ase=3.17.0=py_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attr=2.5.1=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">attrs=21.4.0=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brotli=1.0.9=h166bdaf_7</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">brotli-bin=1.0.9=h166bdaf_7</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bzip2=1.0.8=h7f98852_4</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ca-certificates=2022.6.15=ha878542_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">certifi=2022.6.15=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">click=8.1.3=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cycler=0.11.0=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cymem=2.0.6=py38hfa26641_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cython=0.29.30=py38hfa26641_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dbus=1.13.6=h5008d03_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dscribe=1.2.1=py38h1fd1430_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expat=2.4.8=h27087fc_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fftw=3.3.10=nompi_h77c792f_102</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flask=2.1.3=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-dejavu-sans-mono=2.37=hab24e00_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-inconsolata=3.000=h77eed37_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-source-code-pro=2.038=h77eed37_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">font-ttf-ubuntu=0.83=hab24e00_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fontconfig=2.14.0=h8e229c2_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonts-conda-ecosystem=1=0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonts-conda-forge=1=0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fonttools=4.34.4=py38h0a891b7_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">freetype=2.10.4=h0708190_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gettext=0.19.8.1=h73d1719_1008</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">giflib=5.2.1=h36c2ea0_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">glib=2.72.1=h6239696_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">glib-tools=2.72.1=h6239696_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gst-plugins-base=1.20.3=hf6a322e_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gstreamer=1.20.3=hd4edc92_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">icu=70.1=h27087fc_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">importlib-metadata=4.11.4=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">iniconfig=1.1.1=pyh9f0ad1d_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">itsdangerous=2.1.2=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jack=1.9.18=h8c3723f_1002</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jinja2=3.1.2=pyhd8ed1ab_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">joblib=1.1.0=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jpeg=9e=h166bdaf_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyutils=1.6.1=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kiwisolver=1.4.3=py38h43d8883_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">krb5=1.19.3=h3790be6_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lcms2=2.12=hddcbb42_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ld_impl_linux-64=2.36.1=hea4e1c9_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lerc=3.0=h9c3ff4c_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libblas=3.9.0=15_linux64_openblas</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libbrotlicommon=1.0.9=h166bdaf_7</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libbrotlidec=1.0.9=h166bdaf_7</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libbrotlienc=1.0.9=h166bdaf_7</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcap=2.64=ha37c62d_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcblas=3.9.0=15_linux64_openblas</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libclang=14.0.6=default_h2e3cab8_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libclang13=14.0.6=default_h3a83d3e_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libcups=2.3.3=hf5a7f15_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libdb=6.2.32=h9c3ff4c_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libdeflate=1.12=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libedit=3.1.20191231=he28a2e2_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libevent=2.1.10=h9b69904_4</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libffi=3.4.2=h7f98852_5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libflac=1.3.4=h27087fc_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgcc-ng=12.1.0=h8d9b700_16</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgfortran-ng=12.1.0=h69a702a_16</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgfortran5=12.1.0=hdcd56e2_16</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libglib=2.72.1=h2d90d5f_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libgomp=12.1.0=h8d9b700_16</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libiconv=1.16=h516909a_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">liblapack=3.9.0=15_linux64_openblas</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libllvm11=11.1.0=hf817b99_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libllvm14=14.0.6=he0ac6c6_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libnsl=2.0.0=h7f98852_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libogg=1.3.4=h7f98852_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libopenblas=0.3.20=pthreads_h78a6416_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libopus=1.3.1=h7f98852_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libpng=1.6.37=h753d276_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libpq=14.4=hd77ab85_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libsndfile=1.0.31=h9c3ff4c_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libstdcxx-ng=12.1.0=ha89aaad_16</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libtiff=4.4.0=hc85c160_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libtool=2.4.6=h9c3ff4c_1008</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libudev1=249=h166bdaf_4</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libuuid=2.32.1=h7f98852_1000</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libvorbis=1.3.7=h9c3ff4c_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libwebp=1.2.2=h3452ae3_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libwebp-base=1.2.2=h7f98852_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libxcb=1.13=h7f98852_1004</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libxkbcommon=1.0.3=he3ba5ed_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libxml2=2.9.14=h22db469_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">libzlib=1.2.12=h166bdaf_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">llvmlite=0.38.1=py38h38d86a4_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">lz4-c=1.9.3=h9c3ff4c_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">markupsafe=2.1.1=py38h0a891b7_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib=3.5.2=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">matplotlib-base=3.5.2=py38h826bfd8_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mpi=1.0=mpich</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mpi4py=3.1.3=py38h97ac3a3_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mpich=4.0.2=h846660c_100</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">munkres=1.1.4=pyh9f0ad1d_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql-common=8.0.29=haf5c9bc_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql-libs=8.0.29=h28c427c_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ncurses=6.3=h27087fc_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nspr=4.32=h9c3ff4c_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nss=3.78=h2350873_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numba=0.55.2=py38hdc3674a_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy=1.22.1=py38h6ae9a64_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openjpeg=2.4.0=hb52868f_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openssl=1.1.1q=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">packaging=21.3=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pcre=8.45=h9c3ff4c_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pillow=9.2.0=py38h0ee0e06_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pip=22.1.2=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pluggy=1.0.0=py38h578d9bd_3</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ply=3.11=py_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">portaudio=19.6.0=h57a0ea0_5</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pthread-stubs=0.4=h36c2ea0_1001</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pulseaudio=14.0=h7f54b18_8</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">py=1.11.0=pyh6c4a22f_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pybind11=2.9.2=py38h43d8883_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pybind11-global=2.9.2=py38h43d8883_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyparsing=3.0.9=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyqt=5.15.7=py38h7492b6b_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pyqt5-sip=12.11.0=py38hfa26641_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pytest=7.1.2=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python=3.8.13=h582c2e5_0_cpython</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python-dateutil=2.8.2=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python_abi=3.8=2_cp38</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">qt-main=5.15.4=ha5833f6_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">readline=8.1.2=h0f457ee_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scikit-learn=1.1.1=py38hf80bbf7_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scipy=1.8.1=py38h1ee437e_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">setuptools=63.2.0=py38h578d9bd_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sip=6.6.2=py38hfa26641_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">six=1.16.0=pyh6c4a22f_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sparse=0.13.0=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sqlite=3.39.1=h4ff8645_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">threadpoolctl=3.1.0=pyh8a188c0_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tk=8.6.12=h27826a3_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toml=0.10.2=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tomli=2.0.1=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tornado=6.2=py38h0a891b7_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">unicodedata2=14.0.0=py38h0a891b7_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">werkzeug=2.1.2=pyhd8ed1ab_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wheel=0.37.1=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xcb-util=0.4.0=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xcb-util-image=0.4.0=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xcb-util-keysyms=0.4.0=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xcb-util-renderutil=0.3.9=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xcb-util-wm=0.4.1=h166bdaf_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xorg-libxau=1.0.9=h7f98852_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xorg-libxdmcp=1.1.3=h7f98852_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xz=5.2.5=h516909a_1</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zipp=3.8.0=pyhd8ed1ab_0</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zlib=1.2.12=h166bdaf_2</span><span class="w"></span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zstd=1.5.2=h8a70e8d_2</span><span class="w"></span>
+</pre></div>
+</div>
 <hr>
 </section>
 </section>
