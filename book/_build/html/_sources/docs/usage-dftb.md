@@ -1,2 +1,0 @@
-# DFTB+ calculation
-

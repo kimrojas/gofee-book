@@ -1,2 +1,0 @@
-# GOFEE with DFTB+ calculation
-

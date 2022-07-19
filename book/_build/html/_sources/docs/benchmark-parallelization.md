@@ -1,3 +1,0 @@
-# Parallelization
-
-## *Coming soon...*
