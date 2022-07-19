@@ -45,7 +45,7 @@ source activate tutorial
 ### Download and use the DFTB+ installer
 We will use the DFTB+ version 22.1 (Other releases are available [here](https://github.com/dftbplus/dftbplus/releases/))
 
-I assume that `tutorial_files` is in the home directory.
+We first create a `tutorial_files` directory in $HOME to keep our files clean.
 
 #### 1. Prepare the installation directory
 
